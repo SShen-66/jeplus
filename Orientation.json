@@ -1,0 +1,70 @@
+{
+  "projectType" : "EPLUS",
+  "projectID" : "G",
+  "projectNotes" : "Various orientation",
+  "weatherDir" : "./",
+  "weatherFile" : "GBR_Birmingham.035340_IWEC.epw",
+  "idfdir" : "./",
+  "idftemplate" : "Welney-orientation.idf",
+  "dckdir" : "./",
+  "outputFileNames" : "trnsysout.csv",
+  "parameters" : [ {
+    "paramType" : "PARAMETRICS",
+    "id" : "P0",
+    "name" : "Orientation",
+    "description" : "Orientation",
+    "searchString" : "@@orientation@@",
+    "type" : "INTEGER",
+    "valuesString" : "[0:30:330]",
+    "selectedAltValue" : 0
+  } ],
+  "rvx" : {
+    "notes" : "",
+    "rvis" : [ {
+      "fileName" : "./results.rvi",
+      "frequency" : "Daily",
+      "tableName" : "SimResults",
+      "usedInCalc" : true
+    } ],
+    "csvs" : [ {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "End Uses",
+      "fromColumn" : "District Heating [kWh]",
+      "fromRow" : "Heating",
+      "tableName" : "Heating",
+      "columnHeaders" : "Heating [kWh]",
+      "usedInCalc" : true
+    } ],
+    "sqls" : [ ],
+    "scripts" : [ ],
+    "userSupplied" : [ ],
+    "trns" : [ ],
+    "userVars" : [ ],
+    "objectives" : [ ],
+    "constraints" : [ ]
+  },
+  "execSettings" : {
+    "numThreads" : 8,
+    "workDir" : "G:\\My Drive\\My work\\W6\\Welney-parallel\\Parallel-results\\Orientation\\",
+    "subSet" : -1,
+    "sampleOpt" : "SHUFFLE",
+    "randomSeed" : 12345,
+    "numberOfJobs" : 1,
+    "jobListFile" : "select job list file ...",
+    "rerunAll" : true,
+    "keepJEPlusFiles" : true,
+    "keepEPlusFiles" : true,
+    "deleteSelectedFiles" : false,
+    "selectedFiles" : "*.dxf *.htm *.mtd *.mdd *.rdd *.shd *.out *.audit *.eio *.idd *.bnd *.ini",
+    "timeout" : 0,
+    "steps" : {
+      "jobListFile" : "joblist_out.csv",
+      "prepareJobs" : true,
+      "runSimulations" : true,
+      "collectResults" : true,
+      "writeJobList" : true
+    }
+  }
+}
